@@ -1,0 +1,22 @@
+{
+  "name": "caios.pages.dev",
+  "version": "0.1.0",
+  "description": "",
+  "private": "true",
+  "engines": {
+    "pnpm": ">=8"
+  },
+  "scripts": {
+    "worker": "pnpm --filter @caios/worker"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiostoduto/caios.pages.dev.git"
+  },
+  "author": "caiostoduto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caiostoduto/caios.pages.dev/issues"
+  },
+  "homepage": "https://github.com/caiostoduto/caios.pages.dev#readme"
+}
