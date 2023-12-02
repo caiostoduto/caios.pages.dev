@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "pnpx @cloudflare/next-on-pages@1"
   },
   "dependencies": {
     "react": "^18",
