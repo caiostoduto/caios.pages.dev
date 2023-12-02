@@ -1,3 +1,5 @@
+import { Router } from '@tsndr/cloudflare-worker-router'
+
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
  *
@@ -26,25 +28,32 @@ export interface Env {
   // MY_QUEUE: Queue;
 }
 
+// Initialize Router
+const router = new Router<Env>()
+
+// Enabling build in CORS support
+router.cors()
+
+router.get('/redirect', async ({ req, env }) => {
+  const url = new URL(req.url)
+  const query = url.searchParams.get('q')
+
+  if (query === null || query === '') {
+    return new Response('Missing query', { status: 400 })
+  }
+
+  const value = await env.REDIRECT.get(query)
+
+  if (value === null) {
+    return new Response('Not found', { status: 400 })
+  } else {
+    return new Response(JSON.stringify({ url: value }), { status: 200 })
+  }
+})
+
+// Listen Cloudflare Workers Fetch Event
 export default {
-  async fetch (request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    if (request.method !== 'GET') {
-      return new Response('Method not allowed', { status: 405 })
-    }
-
-    const url = new URL(request.url)
-    const query = url.searchParams.get('q')
-
-    if (query === null || query === '') {
-      return new Response('Missing query', { status: 400 })
-    }
-
-    const value = await env.REDIRECT.get(query)
-
-    if (value === null) {
-      return new Response('Not found', { status: 404 })
-    } else {
-      return new Response(JSON.stringify({ url: value }), { status: 200 })
-    }
+  async fetch (request: Request, env: Env, ctx: ExecutionContext) {
+    return await router.handle(request, env, ctx)
   }
 }
