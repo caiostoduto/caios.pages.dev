@@ -11,7 +11,8 @@
 export interface Env {
 	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
 	// MY_KV_NAMESPACE: KVNamespace;
-	//
+	REDIRECT: KVNamespace;
+
 	// Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
 	// MY_DURABLE_OBJECT: DurableObjectNamespace;
 	//
@@ -27,6 +28,23 @@ export interface Env {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+		if (request.method !== 'GET') {
+			return new Response('Method not allowed', { status: 405 });
+		}
+
+		const url = new URL(request.url)
+		const query = url.searchParams.get('q')
+
+		if (query === null || query === '') {
+			return new Response('Missing query', { status: 400 })
+		}
+
+		const value = await env.REDIRECT.get(query)
+		
+		if (value === null) {
+			return new Response('Not found', { status: 404 })
+		} else {
+			return new Response(JSON.stringify({ url: value }), { status: 200 })
+		}
 	},
 };
