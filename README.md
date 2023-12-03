@@ -36,7 +36,7 @@ Add the following to your configuration file in your kv_namespaces array:
 { binding = "REDIRECT", id = "eba0861323604a19a026ff38e0d65b8e" }
 ```
 
-4. Copy the binding id and paste it replacing the '***' in the @app/worker/wrangler.toml file
+4. Replace '***' in the @app/worker/wrangler.toml file with the KVNamespace id from step 3
 
 ```toml
 kv_namespaces = [
