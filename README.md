@@ -4,7 +4,7 @@ My Personal Website + URL Shortner using [Next.js](https://nextjs.org/), Cloudfl
 
 - [x] URL Shortner
 - [x] Configurable Redirects *(using Cloudflare KVNamespace)*
-- [x] Configurable Default Redirect
+- [x] Configurable Default Redirect *(app/not-found.tsx)*
 - [ ] *Homepage*
 
 ## Try it
