@@ -39,7 +39,7 @@ interface FetchRedirectURLResponse {
 }
 
 async function fetchRedirectURL(code: string): Promise<string | null> {
-  const url = `${process.env['NEXT_PUBLIC_REDIRECT_URL']}?q=${code}`
+  const url = `${process.env['NEXT_PUBLIC_REDIRECT_URL']}/redirect?q=${code}`
 
   try {
     const response = await fetch(url, {
