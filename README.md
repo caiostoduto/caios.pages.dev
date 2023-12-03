@@ -65,7 +65,7 @@ $ pnpx worker run deploy
 | NEXT_PUBLIC_REDIRECT_URL | https://caios.pages.dev |
 | NEXT_PUBLIC_DEFAULT_REDIRECT_URL | https://github.com/caiostoduto |
 
-*NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*
+*NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*\
 *NEXT_PUBLIC_DEFAULT_REDIRECT_URL is the default route to redirect in case the url query wans't found in the KVNamespace*
 
 ![Image from Cloudflare Pages Dashboard setting environment variables](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/env_vars.png)
