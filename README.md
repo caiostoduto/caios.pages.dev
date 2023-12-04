@@ -17,11 +17,13 @@ My Personal Website + URL Shortner using [Next.js](https://nextjs.org/), Cloudfl
 1. Clone the repository
 ```bash
 $ git clone git@github.com:caiostoduto/caios.pages.dev.git
+$ cd caios.pages.dev
 ```
 
 2. Install dependencies
 ```bash
-$ pnpm install
+$ pnpm web install
+$ pnpm worker install
 ```
 
 ### Worker
