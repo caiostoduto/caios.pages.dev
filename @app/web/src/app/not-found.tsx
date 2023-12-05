@@ -1,7 +1,5 @@
 'use client'
 
-import { quantum } from 'ldrs'
-
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, type ReactElement } from 'react'
 
@@ -11,11 +9,19 @@ export default function NotFound (): ReactElement<any, any> | void {
   const [isLoading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    fetchRedirectURL(code).then((url) => {
+    (async () => {
+      const url = await fetchRedirectURL(code)
       setRedirectURL(url)
       setLoading(false)
-    })
+    })()
   }, [code])
+
+  useEffect(() => {
+    (async () => {
+      const { quantum } = await import('ldrs')
+      quantum.register()
+    })()
+  }, [])
 
   if (isLoading) return LoadingScreen()
 
@@ -23,8 +29,6 @@ export default function NotFound (): ReactElement<any, any> | void {
 }
 
 function LoadingScreen (): ReactElement<any, any> {
-  quantum.register()
-
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
       <l-quantum
