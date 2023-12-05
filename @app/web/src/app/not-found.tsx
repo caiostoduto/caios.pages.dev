@@ -1,37 +1,43 @@
 'use client'
 
+import { quantum } from 'ldrs'
+
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, type ReactElement } from 'react'
 
 export default function NotFound (): ReactElement<any, any> | void {
   const code = (usePathname() as string)?.slice(1)
-  const [data, setData] = useState<string | null>(null)
+  const [redirectURL, setRedirectURL] = useState<string | null>(null)
   const [isLoading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     fetchRedirectURL(code).then((url) => {
-      setData(url)
+      setRedirectURL(url)
       setLoading(false)
     })
   }, [code])
 
   if (isLoading) return LoadingScreen()
-  if (data === null) return redirectDefault()
 
-  return window.location.replace(data)
+  return window.location.replace(redirectURL ?? getDefaultRedirect())
 }
 
 function LoadingScreen (): ReactElement<any, any> {
+  quantum.register()
+
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
-      <p className="text-2xl font-bold text-gray-800">Loading...</p>
+      <l-quantum
+        size="75"
+        speed="1.75" 
+        color="rgb(var(--foreground-rgb))"
+      ></l-quantum>
     </div>
   )
 }
 
-function redirectDefault (): void {
-  window.location.replace(
-    process.env['NEXT_PUBLIC_DEFAULT_REDIRECT_URL'] as string)
+function getDefaultRedirect (): string {
+  return process.env['NEXT_PUBLIC_DEFAULT_REDIRECT_URL'] as string
 }
 
 interface FetchRedirectURLResponse {
