@@ -58,7 +58,7 @@ $ pnpx worker run deploy
 
 7. [Create a new Cloudflare Pages project](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#deploy-your-application-to-cloudflare-pages-1) *(suggest deploy using github/gitlab)*, and don't forget to set **nodejs_compat** compatibility flag.
 
-![Image from Cloudflare Pages Dashboard setting compatibility flag](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/compatibility_flags.png)
+![Image from Cloudflare Pages Dashboard setting compatibility flag](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/compatibility_flags.jpeg)
 
 8. [Add the following environment variables to the project](https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard)
 
@@ -70,8 +70,8 @@ $ pnpx worker run deploy
 *NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*\
 *NEXT_PUBLIC_DEFAULT_REDIRECT_URL is the default route to redirect in case the url query wans't found in the KVNamespace*
 
-![Image from Cloudflare Pages Dashboard setting environment variables](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/env_vars.png)
+![Image from Cloudflare Pages Dashboard setting environment variables](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/env_vars.jpeg)
 
 9. [Retry your latest deploy](https://dash.cloudflare.com/)
 
-![Image from Cloudflare Pages Dashboard retrying latest deploy](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/retry_deploy.png)
+![Image from Cloudflare Pages Dashboard retrying latest deploy](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/retry_deploy.jpeg)
