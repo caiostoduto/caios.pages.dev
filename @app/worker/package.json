@@ -16,7 +16,7 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "typescript": "^5.3.2",
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.19.0"
   },
   "dependencies": {
     "@tsndr/cloudflare-worker-router": "^3.1.3"
