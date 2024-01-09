@@ -52,23 +52,24 @@ kv_namespaces = [
 $ pnpx worker run deploy
 ```
 
-6. Add your redirect routes to the KVNamespace *(suggest using [Cloudflare KVNamespace Dashboard](https://dash.cloudflare.com/))*
+6. Add your redirect routes to the KVNamespace *(suggest using [Cloudflare KVNamespace Dashboard](https://dash.cloudflare.com/))*\
+**must include 'DEFAULT' route**
+
+![Image from Cloudflare Pages Dashboard setting kv routes](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/kv.jpeg)
 
 ### Website
 
 7. [Create a new Cloudflare Pages project](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#deploy-your-application-to-cloudflare-pages-1) *(suggest deploy using github/gitlab)*, and don't forget to set **nodejs_compat** compatibility flag.
 
-![Image from Cloudflare Pages Dashboard setting compatibility flag](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/compatibility_flags.jpeg)
+![Image from Cloudflare Pages Dashboard setting compatibility flag](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/compatibility_flag.jpeg)
 
-8. [Add the following environment variables to the project](https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard)
+8. [Add the following environment variable to the project](https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard)
 
 | Name | Example Value |
 | --- | --- |
-| NEXT_PUBLIC_REDIRECT_URL | https://caios.pages.dev |
-| NEXT_PUBLIC_DEFAULT_REDIRECT_URL | https://github.com/caiostoduto |
+| NEXT_PUBLIC_REDIRECT_URL | https://caios.caiostoduto.workers.dev/ |
 
-*NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*\
-*NEXT_PUBLIC_DEFAULT_REDIRECT_URL is the default route to redirect in case the url query wans't found in the KVNamespace*
+*NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*
 
 ![Image from Cloudflare Pages Dashboard setting environment variables](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/env_vars.jpeg)
 
