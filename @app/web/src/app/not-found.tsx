@@ -24,8 +24,7 @@ export default function NotFound (): ReactElement<any, any> | void {
   }, [])
 
   if (isLoading) return LoadingScreen()
-
-  return window.location.replace(redirectURL ?? getDefaultRedirect())
+  if (redirectURL) return window.location.replace(redirectURL)
 }
 
 function LoadingScreen (): ReactElement<any, any> {
@@ -38,10 +37,6 @@ function LoadingScreen (): ReactElement<any, any> {
       ></l-quantum>
     </div>
   )
-}
-
-function getDefaultRedirect (): string {
-  return process.env['NEXT_PUBLIC_DEFAULT_REDIRECT_URL'] as string
 }
 
 interface FetchRedirectURLResponse {
