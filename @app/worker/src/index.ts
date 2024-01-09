@@ -38,10 +38,10 @@ router.cors()
 
 router.get('/redirect', async ({ req, env }) => {
   const url = new URL(req.url)
-  const query = url.searchParams.get('q')?.toLowerCase()
+  let query = url.searchParams.get('q')?.toLowerCase()
 
   if (query === undefined || query === '') {
-    return new Response('Missing query', { status: 400 })
+    query = DEFAULT_REDIRECT // return new Response('Missing query', { status: 400 })
   }
 
   return await returnKVResponse(env, query)
