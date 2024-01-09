@@ -28,6 +28,8 @@ export interface Env {
   // MY_QUEUE: Queue;
 }
 
+const DEFAULT_REDIRECT = 'DEFAULT'
+
 // Initialize Router
 const router = new Router<Env>()
 
@@ -36,20 +38,32 @@ router.cors()
 
 router.get('/redirect', async ({ req, env }) => {
   const url = new URL(req.url)
-  const query = url.searchParams.get('q')
+  const query = url.searchParams.get('q')?.toLowerCase()
 
-  if (query === null || query === '') {
+  if (query === undefined || query === '') {
     return new Response('Missing query', { status: 400 })
   }
 
+  return await returnKVResponse(env, query)
+})
+
+async function returnKVResponse (env: Env, query: string): Promise<Response> {
   const value = await env.REDIRECT.get(query)
 
-  if (value === null) {
-    return new Response('Not found', { status: 400 })
+  if (value !== null) {
+    return new Response(
+      JSON.stringify({
+        url: value,
+        default: query === DEFAULT_REDIRECT
+      }), { status: 200 })
   } else {
-    return new Response(JSON.stringify({ url: value }), { status: 200 })
+    if (query !== DEFAULT_REDIRECT) {
+      return await returnKVResponse(env, DEFAULT_REDIRECT)
+    } else {
+      return new Response('Not found', { status: 404 })
+    }
   }
-})
+}
 
 // Listen Cloudflare Workers Fetch Event
 export default {
