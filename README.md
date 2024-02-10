@@ -35,9 +35,9 @@ $ pnpm wrangler kv:namespace create REDIRECT
 $ pnpm run pages:deploy
 ```
 
-5. [Enable Node.js from the Cloudflare dashboard](https://developers.cloudflare.com/workers/runtime-apis/nodejs/#enable-nodejs-from-the-cloudflare-dashboard) (Repeat step 4 after enabling 'nodejs_compat')
+5. [Enable Node.js from the Cloudflare dashboard](https://developers.cloudflare.com/workers/runtime-apis/nodejs/#enable-nodejs-from-the-cloudflare-dashboard)
 
-6. [Bind your KV namespace to your Pages Function](https://developers.cloudflare.com/pages/functions/bindings/#kv-namespaces)
+6. [Bind your KV namespace to your Pages Function](https://developers.cloudflare.com/pages/functions/bindings/#kv-namespaces) (Repeat step 4 after enabling 'nodejs_compat')
 
 7. Add your redirect routes to the KVNamespace *(suggest using [Cloudflare KVNamespace Dashboard](https://dash.cloudflare.com/))*\
 **must include '/' (default) route**
