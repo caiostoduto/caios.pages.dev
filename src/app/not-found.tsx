@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import Head from 'next/head';
 import { useState, useEffect, type ReactElement } from 'react'
 
 export default function NotFound(): ReactElement<any, any> | void {
@@ -29,13 +30,17 @@ export default function NotFound(): ReactElement<any, any> | void {
 
 function LoadingScreen(): ReactElement<any, any> {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen">
+    <main className="flex flex-col items-center justify-center w-full h-screen">
+      <Head>
+        <title>Redirecting...</title>
+      </Head>
+
       <l-quantum
         size="75"
         speed="1.75"
         color="rgb(var(--foreground-rgb))"
       ></l-quantum>
-    </div>
+    </main>
   )
 }
 
