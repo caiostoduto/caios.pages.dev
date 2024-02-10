@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, type ReactElement } from 'react'
 
-export default function NotFound (): ReactElement<any, any> | void {
+export default function NotFound(): ReactElement<any, any> | void {
   const code = (usePathname() as string)?.slice(1)
   const [redirectURL, setRedirectURL] = useState<string | null>(null)
   const [isLoading, setLoading] = useState<boolean>(true)
@@ -27,12 +27,12 @@ export default function NotFound (): ReactElement<any, any> | void {
   if (redirectURL) return window.location.replace(redirectURL)
 }
 
-function LoadingScreen (): ReactElement<any, any> {
+function LoadingScreen(): ReactElement<any, any> {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
       <l-quantum
         size="75"
-        speed="1.75" 
+        speed="1.75"
         color="rgb(var(--foreground-rgb))"
       ></l-quantum>
     </div>
@@ -55,5 +55,5 @@ async function fetchRedirectURL(code: string): Promise<string | null> {
     return (await response.json() as FetchRedirectURLResponse).url ?? null
   } catch (e) {
     return null
-  }  
+  }
 }

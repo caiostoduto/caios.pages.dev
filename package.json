@@ -1,23 +1,36 @@
 {
-  "name": "caios.pages.dev",
+  "name": "a",
   "version": "0.1.0",
-  "description": "",
-  "private": "true",
-  "engines": {
-    "pnpm": ">=8"
-  },
+  "private": true,
   "scripts": {
-    "worker": "pnpm --filter @caios/worker",
-    "web": "pnpm --filter @caios/web"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pages:build": "pnpm next-on-pages",
+    "pages:preview": "pnpm pages:build && wrangler pages dev .vercel/output/static --compatibility-date=2024-02-08 --compatibility-flag=nodejs_compat",
+    "pages:deploy": "pnpm pages:build && wrangler pages deploy .vercel/output/static"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/caiostoduto/caios.pages.dev.git"
+  "dependencies": {
+    "ldrs": "^1.0.1",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18"
   },
-  "author": "caiostoduto",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/caiostoduto/caios.pages.dev/issues"
-  },
-  "homepage": "https://github.com/caiostoduto/caios.pages.dev#readme"
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "1",
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "eslint-plugin-next-on-pages": "^1.8.6",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5",
+    "vercel": "^33.5.0",
+    "wrangler": "^3.28.1"
+  }
 }
