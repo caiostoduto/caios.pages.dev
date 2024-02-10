@@ -6,8 +6,9 @@ declare global {
       //
       // KV Example:
       // MY_KV: KVNamespace
+      REDIRECT: KVNamespace
     }
   }
 }
 
-export {}
+export { }
