@@ -1,4 +1,4 @@
-My Personal Website + URL Shortner using [Next.js](https://nextjs.org/), Cloudflare [Worker](https://workers.cloudflare.com/), [Pages](https://pages.cloudflare.com/) & [KVNamespace](https://developers.cloudflare.com/kv/learning/kv-namespaces/)
+My Personal Website + URL Shortner using [Next.js](https://nextjs.org/), [Cloudflare Pages](https://pages.cloudflare.com/) & [KVNamespace](https://developers.cloudflare.com/kv/learning/kv-namespaces/)
 
 ## Features
 
@@ -22,57 +22,22 @@ $ cd caios.pages.dev
 
 2. Install dependencies
 ```bash
-$ pnpm web install
-$ pnpm worker install
+$ pnpm install
 ```
 
-### Worker
-
-3. Create a new Cloudflare KVNamespace
-
+3. [Create a new Cloudflare KVNamespace](https://developers.cloudflare.com/kv/get-started/#3-create-a-kv-namespace)
 ```bash
-$ pnpx wrangler kv:namespace create REDIRECT
-# Output:
-...
-Add the following to your configuration file in your kv_namespaces array:
-{ binding = "REDIRECT", id = "eba0861323604a19a026ff38e0d65b8e" }
+$ pnpm wrangler kv:namespace create REDIRECT
 ```
 
-4. Replace '***' in the @app/worker/wrangler.toml file with the KVNamespace id from step 3
-
-```toml
-kv_namespaces = [
-  { binding = "REDIRECT", id = "eba0861323604a19a026ff38e0d65b8e" }
-]
-```
-
-5. Deploy the worker
-
+4. Deploy the worker
 ```bash
-$ pnpx worker run deploy
+$ pnpx run pages:deploy
 ```
+
+5. [Bind your KV namespace to your Pages Function](https://developers.cloudflare.com/pages/functions/bindings/#kv-namespaces)
 
 6. Add your redirect routes to the KVNamespace *(suggest using [Cloudflare KVNamespace Dashboard](https://dash.cloudflare.com/))*\
-**must include 'DEFAULT' route**
+**must include '/' (default) route**
 
 ![Image from Cloudflare Pages Dashboard setting kv routes](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/kv.jpeg)
-
-### Website
-
-7. [Create a new Cloudflare Pages project](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#deploy-your-application-to-cloudflare-pages-1) *(suggest deploy using github/gitlab)*, and don't forget to set **nodejs_compat** compatibility flag.
-
-![Image from Cloudflare Pages Dashboard setting compatibility flag](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/compatibility_flag.jpeg)
-
-8. [Add the following environment variable to the project](https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard)
-
-| Name | Example Value |
-| --- | --- |
-| NEXT_PUBLIC_REDIRECT_URL | https://caios.caiostoduto.workers.dev/ |
-
-*NEXT_PUBLIC_REDIRECT_URL is your Cloudflare Worker URL from step 6*
-
-![Image from Cloudflare Pages Dashboard setting environment variables](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/env_vars.jpeg)
-
-9. [Retry your latest deploy](https://dash.cloudflare.com/)
-
-![Image from Cloudflare Pages Dashboard retrying latest deploy](https://github.com/caiostoduto/caios.pages.dev/blob/main/docs/images/retry_deploy.jpeg)
