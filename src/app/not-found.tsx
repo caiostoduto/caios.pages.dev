@@ -38,7 +38,7 @@ function LoadingScreen(): ReactElement<any, any> {
       <l-quantum
         size="75"
         speed="1.75"
-        color="rgb(var(--foreground-rgb))"
+        color="var(--foreground-rgb)"
       ></l-quantum>
     </main>
   )
