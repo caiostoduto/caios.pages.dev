@@ -7,6 +7,7 @@ declare global {
       // KV Example:
       // MY_KV: KVNamespace
       REDIRECT: KVNamespace
+      SENTRY_DNS: string | undefined
     }
   }
 }
