@@ -1,8 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import Head from 'next/head';
 import { useState, useEffect, type ReactElement } from 'react'
+import { quantum } from 'ldrs'
 
 export default function NotFound(): ReactElement<any, any> | void {
   const code = (usePathname() as string)?.slice(1)
@@ -17,24 +17,16 @@ export default function NotFound(): ReactElement<any, any> | void {
     })()
   }, [code])
 
-  useEffect(() => {
-    (async () => {
-      const { quantum } = await import('ldrs')
-      quantum.register()
-    })()
-  }, [])
 
   if (isLoading) return LoadingScreen()
   if (redirectURL) return window.location.replace(redirectURL)
 }
 
 function LoadingScreen(): ReactElement<any, any> {
+  quantum.register()
+  
   return (
     <main className="flex flex-col items-center justify-center w-full h-screen">
-      <Head>
-        <title>Redirecting...</title>
-      </Head>
-
       <l-quantum
         size="75"
         speed="1.75"

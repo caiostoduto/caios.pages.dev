@@ -16,7 +16,8 @@ export default function RootLayout({
       <script
         type="module"
         defer
-        src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/spiral.js"
+        src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"
+        async
       ></script>
 
       <body>{children}</body>
