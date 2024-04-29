@@ -4,7 +4,7 @@ import LoadingAnimation from "@/components/loading";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
 
-import styles from "@/app/not-found.module.css";
+import "@/app/styles/not-found.css";
 
 export default function NotFound(): ReactNode {
 	const code = (usePathname() as string)?.slice(1);
@@ -25,7 +25,7 @@ export default function NotFound(): ReactNode {
 
 function LoadingScreen() {
 	return (
-		<div className={styles._}>
+		<div>
 			<head>
 				<title>Caio Stoduto - URL Shortner</title>
 				<meta name="description" content="Você está sendo redirecionado..." />
