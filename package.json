@@ -13,27 +13,27 @@
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.1",
-		"@sentry/nextjs": "^7.105.0",
+		"@sentry/nextjs": "^7.112.2",
 		"ldrs": "^1.0.1",
 		"next": "14.1.0",
-		"react": "^18",
-		"react-dom": "^18"
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.1",
-		"@cloudflare/next-on-pages": "1",
-		"@cloudflare/workers-types": "^4.20240208.0",
-		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"autoprefixer": "^10.0.1",
-		"eslint": "^8",
+		"@cloudflare/next-on-pages": "^1.11.1",
+		"@cloudflare/workers-types": "^4.20240423.0",
+		"@types/node": "^20.12.7",
+		"@types/react": "^18.3.1",
+		"@types/react-dom": "^18.3.0",
+		"autoprefixer": "^10.4.19",
+		"eslint": "^8.57.0",
 		"eslint-config-next": "14.1.0",
-		"eslint-plugin-next-on-pages": "^1.8.6",
-		"postcss": "^8",
-		"tailwindcss": "^3.3.0",
-		"typescript": "^5",
-		"vercel": "^33.5.0",
-		"wrangler": "^3.28.1"
+		"eslint-plugin-next-on-pages": "^1.11.1",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.4.5",
+		"vercel": "^33.7.1",
+		"wrangler": "^3.52.0"
 	}
 }
