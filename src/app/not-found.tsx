@@ -1,8 +1,10 @@
 "use client";
 
-import { quantum } from "ldrs";
+import LoadingAnimation from "@/components/loading";
 import { usePathname } from "next/navigation";
-import { type ReactElement, type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+
+import styles from "@/app/not-found.module.css";
 
 export default function NotFound(): ReactNode {
 	const code = (usePathname() as string)?.slice(1);
@@ -21,18 +23,24 @@ export default function NotFound(): ReactNode {
 	if (redirectURL) window.location.replace(redirectURL);
 }
 
-function LoadingScreen(): ReactNode {
-	quantum.register();
-
+function LoadingScreen() {
 	return (
-		<main className="flex flex-col items-center justify-center w-full h-screen">
-			<l-quantum size="75" speed="1.75" color="var(--foreground-rgb)" />
-		</main>
-	);
-}
+		<div className={styles._}>
+			<head>
+				<title>Caio Stoduto - URL Shortner</title>
+				<meta name="description" content="Você está sendo redirecionado..." />
 
-interface FetchRedirectURLResponse {
-	url?: string;
+				<meta property="og:title" content="Caio Stoduto - URL Shortner" />
+				<meta
+					property="og:description"
+					content="Encurtador de links criado pelo Caio Stoduto"
+				/>
+				{/* <meta property="og:image" content="image_url_here" /> */}
+			</head>
+
+			<LoadingAnimation />
+		</div>
+	);
 }
 
 async function fetchRedirectURL(code: string): Promise<string | null> {
@@ -48,4 +56,8 @@ async function fetchRedirectURL(code: string): Promise<string | null> {
 	} catch (e) {
 		return null;
 	}
+}
+
+interface FetchRedirectURLResponse {
+	url?: string;
 }
