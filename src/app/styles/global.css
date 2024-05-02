@@ -11,4 +11,5 @@
 
 body {
   background: var(--background-rgb);
+  color: var(--foreground-rgb);
 }

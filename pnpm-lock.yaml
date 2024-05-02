@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@gsap/react':
-        specifier: ^2.1.1
-        version: 2.1.1
       '@sentry/nextjs':
         specifier: ^7.112.2
         version: 7.112.2(next@14.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
       ldrs:
         specifier: ^1.0.1
         version: 1.0.1
@@ -383,9 +383,6 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
-
-  '@gsap/react@2.1.1':
-    resolution: {integrity: sha512-apGPRrmpqxvl1T6Io1KgT8tFU+IuACI6z4zmT7t8+PASserJeLVRFJdSNUFA2Xb/eVkZI1noE8LIrY/w/oJECw==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -3280,11 +3277,6 @@ snapshots:
   '@eslint/js@8.57.0': {}
 
   '@fastify/busboy@2.1.1': {}
-
-  '@gsap/react@2.1.1':
-    dependencies:
-      gsap: 3.12.5
-      react: 18.3.1
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
