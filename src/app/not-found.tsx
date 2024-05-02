@@ -4,8 +4,6 @@ import LoadingAnimation from "@/components/loading";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
 
-import "@/app/styles/not-found.css";
-
 export default function NotFound(): ReactNode {
 	const code = (usePathname() as string)?.slice(1);
 	const [redirectURL, setRedirectURL] = useState<string | null>(null);
