@@ -25,31 +25,38 @@ export default function TitleBrio() {
 		timeline
 			.fromTo(
 				pro.current,
-				{ x: (pro.current as unknown as HTMLSpanElement).offsetWidth },
+				{
+					x: (pro.current as unknown as HTMLSpanElement).offsetWidth,
+					opacity: 1,
+				},
 				{ x: "0rem", duration: 1.6, ease: customEaseIn },
 				0,
 			)
 			.fromTo(
 				jeto.current,
-				{ x: -(jeto.current as unknown as HTMLSpanElement).offsetWidth },
+				{
+					x: -(jeto.current as unknown as HTMLSpanElement).offsetWidth,
+					opacity: 1,
+				},
 				{ x: "0rem", duration: 1.6, ease: customEaseIn },
 				0.6,
 			)
 			.fromTo(
 				brio.current,
-				{ x: (brio.current as unknown as HTMLSpanElement).offsetWidth },
+				{
+					x: (brio.current as unknown as HTMLSpanElement).offsetWidth,
+					opacity: 1,
+				},
 				{ x: "0rem", duration: 1.6, ease: customEaseIn },
 				0.6,
 			)
 			.fromTo(
 				sm.current,
 				{
-					x: -(
-						(sm.current as unknown as HTMLSpanElement)
-							.parentElement as HTMLDivElement
-					).offsetWidth,
+					y: (sm.current as unknown as HTMLSpanElement).offsetHeight / 5,
+					opacity: 0,
 				},
-				{ x: "0rem", duration: 1.6, ease: customEaseIn },
+				{ y: "0rem", duration: 1.3, ease: customEaseIn, opacity: 1 },
 				1.3,
 			);
 
@@ -59,24 +66,43 @@ export default function TitleBrio() {
 	}, []);
 
 	return (
-		<div className={`text-[7vw] ${Reforma1918Negra.className} select-none`}>
+		<div className={`${Reforma1918Negra.className} select-none`}>
 			<div className="flex">
 				<div className="flex overflow-hidden">
-					<span ref={pro}>PRO</span>
+					<span
+						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+						ref={pro}
+					>
+						PRO
+					</span>
 				</div>
 				<div className="flex overflow-hidden">
-					<span ref={jeto}>JETO</span>
+					<span
+						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+						ref={jeto}
+					>
+						JETO
+					</span>
 				</div>
 
 				<span className="w-[2vw]" />
 
 				<div className="flex overflow-hidden">
-					<span ref={brio}>BRIO</span>
+					<span
+						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+						ref={brio}
+					>
+						BRIO
+					</span>
 				</div>
 
 				<div className="flex overflow-hidden">
-					<span className="w-[2vw]" />
-					<span ref={sm}>(s.m.)</span>
+					<span
+						className="opacity-0 text-[0.8rem] min-[720px]:text-[1.78rem]"
+						ref={sm}
+					>
+						(s.m.)
+					</span>
 				</div>
 			</div>
 		</div>

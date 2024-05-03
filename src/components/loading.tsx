@@ -12,7 +12,7 @@ export default function LoadingAnimation() {
 
 	return (
 		<main className="flex flex-col items-center justify-center h-screen">
-			<l-quantum size="75" speed="1.75" color="var(--foreground-rgb)" />
+			<l-quantum size="75" speed="1.75" color="var(--primary-rgb)" />
 		</main>
 	);
 }

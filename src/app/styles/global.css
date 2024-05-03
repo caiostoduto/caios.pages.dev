@@ -4,12 +4,14 @@
 
 @layer base {
   :root {
-    --foreground-rgb: #FFFFFF;
-    --background-rgb: #111111;
+    --primary-rgb: #DDDDDD;
+    --secondary-rgb: #AAAAAA;
+    --background-rgb: #000000;
   }
 }
 
 body {
   background: var(--background-rgb);
-  color: var(--foreground-rgb);
+  color: var(--primary-rgb);
+  overflow: hidden;
 }
