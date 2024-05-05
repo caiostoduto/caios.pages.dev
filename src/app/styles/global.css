@@ -13,5 +13,4 @@
 body {
   background: var(--background-rgb);
   color: var(--primary-rgb);
-  overflow: hidden;
 }
