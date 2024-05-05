@@ -19,6 +19,10 @@ export default function BrioScrollDown() {
 			{ opacity: 0 },
 			{ opacity: 1, duration: 4, ease: customEaseIn, delay: 2 },
 		);
+
+		return () => {
+			gsap.killTweensOf(image.current);
+		};
 	});
 
 	return (
