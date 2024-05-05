@@ -66,44 +66,42 @@ export default function TitleBrio() {
 	}, []);
 
 	return (
-		<div className={`${Reforma1918Negra.className} select-none`}>
-			<div className="flex">
-				<div className="flex overflow-hidden">
-					<span
-						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
-						ref={pro}
-					>
-						PRO
-					</span>
-				</div>
-				<div className="flex overflow-hidden">
-					<span
-						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
-						ref={jeto}
-					>
-						JETO
-					</span>
-				</div>
+		<div className={`${Reforma1918Negra.className} select-none flex`}>
+			<div className="flex overflow-hidden">
+				<span
+					className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+					ref={pro}
+				>
+					PRO
+				</span>
+			</div>
+			<div className="flex overflow-hidden">
+				<span
+					className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+					ref={jeto}
+				>
+					JETO
+				</span>
+			</div>
 
-				<span className="w-[2vw]" />
+			<span className="w-[2vw]" />
 
-				<div className="flex overflow-hidden">
-					<span
-						className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
-						ref={brio}
-					>
-						BRIO
-					</span>
-				</div>
+			<div className="flex overflow-hidden">
+				<span
+					className="opacity-0 text-[2.25rem] min-[720px]:text-[5rem]"
+					ref={brio}
+				>
+					BRIO
+				</span>
+			</div>
 
-				<div className="flex overflow-hidden">
-					<span
-						className="opacity-0 text-[0.8rem] min-[720px]:text-[1.78rem]"
-						ref={sm}
-					>
-						(s.m.)
-					</span>
-				</div>
+			<div className="flex overflow-hidden">
+				<span
+					className="opacity-0 text-[0.8rem] min-[720px]:text-[1.78rem]"
+					ref={sm}
+				>
+					(s.m.)
+				</span>
 			</div>
 		</div>
 	);
