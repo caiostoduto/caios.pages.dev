@@ -1,9 +1,9 @@
-import styles from "@/components/styles/gradient.module.css";
+import styles from "@/components/brio/styles/gradient.module.css";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { useLayoutEffect, useRef } from "react";
 
-export default function Gradient() {
+export default function BrioGradient() {
 	const gradient = useRef(null);
 
 	useLayoutEffect(() => {

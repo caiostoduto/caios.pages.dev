@@ -6,7 +6,7 @@ import { CustomEase } from "gsap/CustomEase";
 import { useLayoutEffect } from "react";
 import { useRef } from "react";
 
-export default function TitleBrio() {
+export default function BrioTitle() {
 	const pro = useRef(null);
 	const jeto = useRef(null);
 	const brio = useRef(null);
