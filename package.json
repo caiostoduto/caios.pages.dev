@@ -7,9 +7,9 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"pages:build": "pnpm next-on-pages",
-		"pages:preview": "pnpm pages:build && wrangler pages dev .vercel/output/static --compatibility-date=2024-02-08 --compatibility-flag=nodejs_compat",
-		"pages:deploy": "pnpm pages:build && wrangler pages deploy .vercel/output/static"
+		"pages:build": "bun next-on-pages",
+		"pages:preview": "bun pages:build && wrangler pages dev .vercel/output/static --compatibility-date=2024-02-08 --compatibility-flag=nodejs_compat",
+		"pages:deploy": "bun pages:build && wrangler pages deploy .vercel/output/static"
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.1",
